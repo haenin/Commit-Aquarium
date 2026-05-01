@@ -31,10 +31,6 @@ export default function AquariumPage() {
         <div className="profile-info">
           <h2>{user.login}</h2>
           <p className="commit-count">올해 총 커밋: <strong>{total.toLocaleString()}</strong></p>
-          <div className="profile-stats">
-            <span>레포 {user.publicRepos ?? 0}</span>
-            <span>팔로워 {user.followers ?? 0}</span>
-          </div>
         </div>
       </div>
 

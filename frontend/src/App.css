@@ -243,15 +243,6 @@ body::after {
   font-size: 1.05rem;
 }
 
-.profile-stats {
-  display: flex;
-  gap: 1rem;
-  margin-top: 0.3rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #2a6aaa;
-}
-
 /* aquarium canvas wrapper */
 .aquarium-canvas-wrapper {
   border-radius: 20px;
