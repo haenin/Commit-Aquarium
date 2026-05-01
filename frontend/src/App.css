@@ -184,7 +184,7 @@ body::after {
    AQUARIUM PAGE
 ══════════════════════════════ */
 .aquarium-page {
-  max-width: 980px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem 1.25rem 3rem;
   position: relative;
@@ -243,27 +243,16 @@ body::after {
   font-size: 1.05rem;
 }
 
-/* aquarium canvas wrapper */
+/* aquarium canvas wrapper — no border-radius, window chrome handles its own frame */
 .aquarium-canvas-wrapper {
-  border-radius: 20px;
+  border-radius: 6px;
   margin-bottom: 1.5rem;
   overflow: hidden;
   box-shadow:
-    0 12px 40px rgba(10, 60, 140, 0.25),
-    inset 0 1px 0 rgba(255,255,255,0.6),
-    0 0 0 1px rgba(255,255,255,0.5);
+    0 16px 48px rgba(10, 50, 120, 0.35),
+    0 0 0 2px rgba(255,255,255,0.4);
   position: relative;
-}
-
-/* glass overlay bar on top of canvas */
-.aquarium-canvas-wrapper::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 36px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, transparent 100%);
-  pointer-events: none;
-  border-radius: 20px 20px 0 0;
+  background: #1050A0;
 }
 
 /* contribution section */
