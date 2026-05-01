@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 220">
+  <defs>
+    <radialGradient id="sh-body" cx="38%" cy="32%" r="62%">
+      <stop offset="0%" stop-color="#b8f0e8"/>
+      <stop offset="28%" stop-color="#40c8a8"/>
+      <stop offset="65%" stop-color="#008870"/>
+      <stop offset="100%" stop-color="#004840"/>
+    </radialGradient>
+    <radialGradient id="sh-gloss" cx="28%" cy="20%" r="48%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.85)"/>
+      <stop offset="40%" stop-color="rgba(255,255,255,0.2)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <filter id="sh-glow">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="#00c898" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- curled tail -->
+  <path d="M62,155 Q85,160 90,178 Q88,195 72,198 Q58,198 55,185 Q55,172 68,170 Q78,170 78,180 Q78,188 70,188 Q65,188 65,182" stroke="#008870" stroke-width="8" fill="none" stroke-linecap="round" filter="url(#sh-glow)"/>
+  <path d="M62,155 Q85,160 90,178 Q88,195 72,198 Q58,198 55,185 Q55,172 68,170 Q78,170 78,180 Q78,188 70,188 Q65,188 65,182" stroke="#40c8a8" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- body segments -->
+  <path d="M50,80 Q28,90 28,110 Q28,138 50,148 Q62,155 62,155 L62,80Z" fill="url(#sh-body)" filter="url(#sh-glow)"/>
+  <path d="M62,80 Q84,90 84,110 Q84,138 62,148 L62,80Z" fill="url(#sh-body)" filter="url(#sh-glow)"/>
+
+  <!-- segment lines (bony plates) -->
+  <g stroke="rgba(0,80,60,0.35)" stroke-width="1.2" fill="none">
+    <path d="M30,95 Q62,88 90,95"/>
+    <path d="M29,108 Q62,100 89,108"/>
+    <path d="M29,120 Q62,113 89,120"/>
+    <path d="M30,132 Q62,125 88,132"/>
+    <path d="M33,143 Q62,137 84,143"/>
+  </g>
+
+  <!-- dorsal fin -->
+  <path d="M62,82 Q75,60 72,42 Q66,55 62,82Z" fill="#40c8a8" opacity="0.55"/>
+  <path d="M62,82 Q50,62 52,42 Q58,55 62,82Z" fill="#40c8a8" opacity="0.4"/>
+
+  <!-- pectoral fin -->
+  <ellipse cx="82" cy="100" rx="18" ry="8" fill="#40c8a8" opacity="0.4" transform="rotate(20,82,100)"/>
+
+  <!-- neck -->
+  <path d="M50,80 Q55,62 62,55 Q69,62 74,80 Q68,75 62,74 Q56,75 50,80Z" fill="url(#sh-body)"/>
+
+  <!-- head -->
+  <ellipse cx="62" cy="48" rx="22" ry="26" fill="url(#sh-body)" filter="url(#sh-glow)"/>
+
+  <!-- snout -->
+  <path d="M40,44 Q22,42 18,48 Q22,54 40,52 Z" fill="url(#sh-body)"/>
+
+  <!-- crest/fin on head -->
+  <path d="M62,22 Q72,10 68,2 Q62,8 58,2 Q54,10 62,22Z" fill="#40c8a8" opacity="0.6"/>
+
+  <!-- gloss on head -->
+  <ellipse cx="56" cy="38" rx="14" ry="16" fill="url(#sh-gloss)"/>
+
+  <!-- eye -->
+  <circle cx="46" cy="46" r="7" fill="#e8fff8"/>
+  <circle cx="46" cy="46" r="5.5" fill="#00201a"/>
+  <circle cx="43" cy="43" r="2.2" fill="rgba(255,255,255,0.92)"/>
+
+  <!-- gloss on body -->
+  <ellipse cx="48" cy="100" rx="10" ry="28" fill="rgba(255,255,255,0.12)"/>
+</svg>

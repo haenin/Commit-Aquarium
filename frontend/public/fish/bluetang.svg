@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140">
+  <defs>
+    <radialGradient id="bt-body" cx="36%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#90d8ff"/>
+      <stop offset="25%" stop-color="#1e90ff"/>
+      <stop offset="65%" stop-color="#0050cc"/>
+      <stop offset="100%" stop-color="#002888"/>
+    </radialGradient>
+    <radialGradient id="bt-gloss" cx="28%" cy="20%" r="52%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.85)"/>
+      <stop offset="45%" stop-color="rgba(255,255,255,0.22)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="bt-tail" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe000" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffaa00" stop-opacity="0.5"/>
+    </linearGradient>
+    <radialGradient id="bt-stripe" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe040"/>
+      <stop offset="100%" stop-color="#ff9800"/>
+    </radialGradient>
+    <filter id="bt-glow">
+      <feDropShadow dx="1" dy="2" stdDeviation="5" flood-color="#1e90ff" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- tail -->
+  <path d="M155,70 C138,35 198,15 208,26 C198,48 202,92 208,114 C198,125 138,105 155,70Z" fill="url(#bt-tail)" filter="url(#bt-glow)"/>
+
+  <!-- yellow tail spine highlight -->
+  <line x1="155" y1="70" x2="208" y2="26" stroke="#ffe040" stroke-width="2" opacity="0.6"/>
+  <line x1="155" y1="70" x2="208" y2="114" stroke="#ffe040" stroke-width="2" opacity="0.6"/>
+
+  <!-- body -->
+  <ellipse cx="88" cy="70" rx="78" ry="48" fill="url(#bt-body)" filter="url(#bt-glow)"/>
+
+  <!-- yellow belly/stripe -->
+  <ellipse cx="88" cy="90" rx="60" ry="20" fill="#ffe040" opacity="0.18"/>
+
+  <!-- dorsal fin -->
+  <path d="M50,22 Q88,5 130,22 L120,30 Q88,16 58,30Z" fill="#0060cc" opacity="0.55"/>
+
+  <!-- pectoral fin -->
+  <ellipse cx="78" cy="96" rx="28" ry="10" fill="#0055bb" opacity="0.38" transform="rotate(12,78,96)"/>
+
+  <!-- gloss -->
+  <ellipse cx="68" cy="44" rx="55" ry="28" fill="url(#bt-gloss)"/>
+
+  <!-- eye -->
+  <circle cx="32" cy="63" r="10" fill="#ddeeff"/>
+  <circle cx="32" cy="63" r="7.5" fill="#0a0520"/>
+  <circle cx="28" cy="59" r="3.2" fill="rgba(255,255,255,0.95)"/>
+  <circle cx="35" cy="67" r="1.4" fill="rgba(255,255,255,0.4)"/>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 180">
+  <defs>
+    <radialGradient id="pf-body" cx="38%" cy="32%" r="60%">
+      <stop offset="0%" stop-color="#fffbcc"/>
+      <stop offset="22%" stop-color="#f0e040"/>
+      <stop offset="55%" stop-color="#c8a800"/>
+      <stop offset="100%" stop-color="#7a6000"/>
+    </radialGradient>
+    <radialGradient id="pf-belly" cx="50%" cy="55%" r="55%">
+      <stop offset="0%" stop-color="#fffef0"/>
+      <stop offset="70%" stop-color="#f8f0c8"/>
+      <stop offset="100%" stop-color="#e8d888"/>
+    </radialGradient>
+    <radialGradient id="pf-gloss" cx="30%" cy="20%" r="48%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.92)"/>
+      <stop offset="40%" stop-color="rgba(255,255,255,0.28)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <filter id="pf-glow">
+      <feDropShadow dx="1" dy="3" stdDeviation="5" flood-color="#c8a800" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- small tail -->
+  <path d="M145,90 C152,68 175,60 182,70 C175,90 175,90 182,110 C175,120 152,112 145,90Z" fill="#b89000" opacity="0.75"/>
+
+  <!-- round body -->
+  <circle cx="85" cy="90" r="72" fill="url(#pf-body)" filter="url(#pf-glow)"/>
+
+  <!-- lighter belly -->
+  <ellipse cx="85" cy="108" rx="52" ry="42" fill="url(#pf-belly)" opacity="0.55"/>
+
+  <!-- spines -->
+  <g fill="#a07800" opacity="0.7">
+    <line x1="85" y1="18" x2="85" y2="4" stroke="#a07800" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="58" y1="24" x2="48" y2="12" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+    <line x1="35" y1="42" x2="22" y2="34" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+    <line x1="112" y1="24" x2="122" y2="12" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+    <line x1="135" y1="42" x2="148" y2="34" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+    <line x1="22" y1="72" x2="8" y2="68" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+    <line x1="148" y1="72" x2="162" y2="68" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+    <line x1="28" y1="112" x2="14" y2="118" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+    <line x1="85" y1="162" x2="85" y2="176" stroke="#a07800" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="52" y1="152" x2="44" y2="165" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+    <line x1="118" y1="152" x2="126" y2="165" stroke="#a07800" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- spots pattern -->
+  <g fill="#9a7200" opacity="0.35">
+    <circle cx="65" cy="75" r="6"/>
+    <circle cx="95" cy="65" r="5"/>
+    <circle cx="115" cy="82" r="5.5"/>
+    <circle cx="75" cy="100" r="5"/>
+    <circle cx="105" cy="100" r="4.5"/>
+    <circle cx="55" cy="95" r="4"/>
+  </g>
+
+  <!-- pectoral fins -->
+  <ellipse cx="40" cy="95" rx="18" ry="9" fill="#c8a000" opacity="0.4" transform="rotate(-20,40,95)"/>
+  <ellipse cx="130" cy="95" rx="18" ry="9" fill="#c8a000" opacity="0.4" transform="rotate(20,130,95)"/>
+
+  <!-- gloss -->
+  <ellipse cx="68" cy="62" rx="46" ry="36" fill="url(#pf-gloss)"/>
+
+  <!-- eye left -->
+  <circle cx="52" cy="72" r="13" fill="#fff8e0"/>
+  <circle cx="52" cy="72" r="10" fill="#0d0a00"/>
+  <circle cx="47" cy="67" r="4.2" fill="rgba(255,255,255,0.92)"/>
+  <circle cx="55" cy="76" r="1.8" fill="rgba(255,255,255,0.4)"/>
+
+  <!-- mouth curve -->
+  <path d="M62,118 Q85,130 108,118" stroke="#9a7200" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

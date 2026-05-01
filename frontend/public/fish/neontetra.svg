@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 110">
+  <defs>
+    <radialGradient id="nt-body" cx="38%" cy="30%" r="62%">
+      <stop offset="0%" stop-color="#e8f8ff"/>
+      <stop offset="25%" stop-color="#a0d8ef"/>
+      <stop offset="60%" stop-color="#5090c8"/>
+      <stop offset="100%" stop-color="#203870"/>
+    </radialGradient>
+    <radialGradient id="nt-gloss" cx="30%" cy="20%" r="52%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.88)"/>
+      <stop offset="45%" stop-color="rgba(255,255,255,0.2)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="nt-neon-blue" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#00c8ff" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#00e8ff" stop-opacity="0.95"/>
+      <stop offset="80%" stop-color="#00d0ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0080ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nt-neon-red" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ff2060" stop-opacity="0"/>
+      <stop offset="15%" stop-color="#ff3070" stop-opacity="0.9"/>
+      <stop offset="75%" stop-color="#ff1050" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#ff2060" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="nt-glow">
+      <feDropShadow dx="0" dy="1" stdDeviation="4" flood-color="#00d0ff" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- tail -->
+  <path d="M148,55 C138,32 175,18 185,28 C176,45 178,65 185,82 C175,92 138,78 148,55Z" fill="#4080c0" opacity="0.65"/>
+
+  <!-- body -->
+  <ellipse cx="82" cy="55" rx="75" ry="34" fill="url(#nt-body)" filter="url(#nt-glow)"/>
+
+  <!-- iridescent blue lateral stripe -->
+  <rect x="18" y="44" width="132" height="11" rx="5.5" fill="url(#nt-neon-blue)" filter="url(#nt-glow)"/>
+
+  <!-- red lower stripe -->
+  <rect x="55" y="55" width="95" height="8" rx="4" fill="url(#nt-neon-red)"/>
+
+  <!-- belly silver -->
+  <ellipse cx="82" cy="68" rx="58" ry="14" fill="#d8f0ff" opacity="0.28"/>
+
+  <!-- dorsal fin -->
+  <path d="M55,21 Q85,8 115,21 L108,28 Q85,16 62,28Z" fill="#4080c0" opacity="0.5"/>
+
+  <!-- gloss -->
+  <ellipse cx="64" cy="37" rx="48" ry="20" fill="url(#nt-gloss)"/>
+
+  <!-- eye -->
+  <circle cx="24" cy="51" r="8.5" fill="#e8f8ff"/>
+  <circle cx="24" cy="51" r="6.5" fill="#0a0a1a"/>
+  <circle cx="20.5" cy="47.5" r="2.8" fill="rgba(255,255,255,0.92)"/>
+</svg>

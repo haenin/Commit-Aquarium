@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(160deg, #a8edea 0%, #74c6e8 30%, #4a9eca 55%, #2d7fbf 75%, #1a5fa8 100%);
+}
+
+/* ── floating orbs in background ── */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+body::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,0.35) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+  animation: orb1 12s ease-in-out infinite alternate;
+}
+body::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(100,220,200,0.3) 0%, transparent 70%);
+  bottom: -80px;
+  right: -80px;
+  animation: orb2 10s ease-in-out infinite alternate;
+}
+
+@keyframes orb1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(80px, 60px) scale(1.15); }
+}
+@keyframes orb2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-60px, -80px) scale(1.1); }
+}
+
+/* ══════════════════════════════
+   GLASS CARD
+══════════════════════════════ */
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.55) 0%,
+    rgba(255,255,255,0.25) 50%,
+    rgba(200,240,255,0.2) 100%
+  );
+  backdrop-filter: blur(18px) saturate(1.6);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  border: 1px solid rgba(255,255,255,0.65);
+  border-radius: 22px;
+  box-shadow:
+    0 8px 32px rgba(30, 100, 180, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    inset 0 -1px 0 rgba(255,255,255,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* shine streak */
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -60%;
+  width: 50%; height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.35) 50%,
+    transparent 100%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════
+   LOGIN PAGE
+══════════════════════════════ */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 3rem 3.5rem;
+  width: 420px;
+  max-width: 90vw;
+}
+
+.login-logo {
+  font-size: 4rem;
+  filter: drop-shadow(0 4px 12px rgba(0,120,200,0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+.login-card h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0a3a6b;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+  letter-spacing: -0.5px;
+}
+
+.login-card p {
+  color: #2a5a8a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* glossy github button */
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(180deg, #3a9e5f 0%, #237a44 50%, #1a6035 100%);
+  box-shadow:
+    0 4px 15px rgba(30, 130, 60, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -2px 0 rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.github-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 100%);
+  border-radius: 50px 50px 0 0;
+}
+
+.github-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(30, 130, 60, 0.6),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -2px 0 rgba(0,0,0,0.2);
+}
+
+.github-btn:active {
+  transform: translateY(0px);
+}
+
+/* ══════════════════════════════
+   AQUARIUM PAGE
+══════════════════════════════ */
+.aquarium-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* profile header card */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.85);
+  box-shadow:
+    0 4px 14px rgba(20, 80, 160, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  display: block;
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.5);
+  box-shadow: 0 0 12px rgba(100, 200, 255, 0.4);
+}
+
+.profile-info h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0a2f5a;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+}
+
+.profile-info .commit-count {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a5a9a;
+}
+
+.commit-count strong {
+  color: #0a3a70;
+  font-size: 1.05rem;
+}
+
+/* aquarium canvas wrapper */
+.aquarium-canvas-wrapper {
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 12px 40px rgba(10, 60, 140, 0.25),
+    inset 0 1px 0 rgba(255,255,255,0.6),
+    0 0 0 1px rgba(255,255,255,0.5);
+  position: relative;
+}
+
+/* glass overlay bar on top of canvas */
+.aquarium-canvas-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, transparent 100%);
+  pointer-events: none;
+  border-radius: 20px 20px 0 0;
+}
+
+/* contribution section */
+.contrib-section {
+  padding: 1.5rem 1.75rem;
+}
+
+.contrib-section h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a4a80;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.contribution-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.contrib-cell {
+  width: 13px;
+  height: 13px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.1s, filter 0.1s;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.contrib-cell:hover {
+  transform: scale(1.4);
+  filter: brightness(1.2);
+  z-index: 2;
+  position: relative;
+}
+
+/* loading */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0,80,160,0.4);
+  position: relative;
+  z-index: 1;
+}

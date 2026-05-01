@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160">
+  <defs>
+    <radialGradient id="be-body" cx="37%" cy="32%" r="62%">
+      <stop offset="0%" stop-color="#f0b8ff"/>
+      <stop offset="22%" stop-color="#c060ff"/>
+      <stop offset="60%" stop-color="#7000cc"/>
+      <stop offset="100%" stop-color="#380070"/>
+    </radialGradient>
+    <radialGradient id="be-gloss" cx="28%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.88)"/>
+      <stop offset="42%" stop-color="rgba(255,255,255,0.22)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="be-tail" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#5500aa" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#9940ff" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#cc80ff" stop-opacity="0.92"/>
+    </linearGradient>
+    <linearGradient id="be-fin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#aa40ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ff60ff" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="be-glow">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#9900ff" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <!-- flowing tail (betta style - wide and flowing) -->
+  <path d="M148,80 C130,45 185,10 200,25 C182,50 180,65 198,55 C192,80 198,80 198,80 C198,80 192,80 198,105 C180,95 182,110 200,135 C185,150 130,115 148,80Z" fill="url(#be-tail)" filter="url(#be-glow)"/>
+
+  <!-- long flowing ventral fins -->
+  <path d="M60,110 Q40,148 20,158 Q30,140 38,125 Q52,130 60,110Z" fill="url(#be-fin)"/>
+  <path d="M90,118 Q80,152 65,165 Q72,146 78,132 Q86,136 90,118Z" fill="url(#be-fin)" opacity="0.7"/>
+
+  <!-- body -->
+  <ellipse cx="84" cy="80" rx="76" ry="44" fill="url(#be-body)" filter="url(#be-glow)"/>
+
+  <!-- iridescent scales shimmer -->
+  <ellipse cx="84" cy="72" rx="55" ry="28" fill="#e080ff" opacity="0.12"/>
+
+  <!-- long dorsal fin -->
+  <path d="M40,36 Q85,10 132,36 L125,45 Q85,22 48,45Z" fill="#aa40ff" opacity="0.55"/>
+
+  <!-- anal fin -->
+  <path d="M55,110 Q85,128 118,110 L112,120 Q85,135 62,120Z" fill="#cc60ff" opacity="0.4"/>
+
+  <!-- gloss -->
+  <ellipse cx="65" cy="54" rx="52" ry="28" fill="url(#be-gloss)"/>
+
+  <!-- eye -->
+  <circle cx="30" cy="73" r="11" fill="#f0d8ff"/>
+  <circle cx="30" cy="73" r="8.5" fill="#0d0018"/>
+  <circle cx="26" cy="69" r="3.5" fill="rgba(255,255,255,0.92)"/>
+  <circle cx="33" cy="76" r="1.5" fill="rgba(255,255,255,0.38)"/>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 150">
+  <defs>
+    <radialGradient id="gf-body" cx="37%" cy="30%" r="64%">
+      <stop offset="0%" stop-color="#fff0a0"/>
+      <stop offset="25%" stop-color="#ffd040"/>
+      <stop offset="60%" stop-color="#ff8c00"/>
+      <stop offset="100%" stop-color="#cc4400"/>
+    </radialGradient>
+    <radialGradient id="gf-gloss" cx="30%" cy="22%" r="50%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+      <stop offset="45%" stop-color="rgba(255,255,255,0.25)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="gf-tail1" x1="0%" y1="50%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff8800" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffcc00" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="gf-tail2" x1="0%" y1="50%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6600" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffaa00" stop-opacity="0.8"/>
+    </linearGradient>
+    <filter id="gf-glow">
+      <feDropShadow dx="1" dy="2" stdDeviation="5" flood-color="#ff8800" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- flowing double tail -->
+  <path d="M150,75 C135,35 180,5 205,18 C185,45 188,65 205,50 C200,75 205,75 205,75 C205,75 200,75 205,100 C188,85 185,105 205,132 C180,145 135,115 150,75Z" fill="url(#gf-tail1)" filter="url(#gf-glow)"/>
+  <path d="M150,75 C138,55 178,30 198,42 C182,55 180,65 195,60 L150,75 C150,75 195,90 195,90 C180,85 182,95 198,108 C178,120 138,95 150,75Z" fill="url(#gf-tail2)" opacity="0.6"/>
+
+  <!-- body — rounder goldfish shape -->
+  <ellipse cx="88" cy="75" rx="74" ry="52" fill="url(#gf-body)" filter="url(#gf-glow)"/>
+
+  <!-- belly lighter -->
+  <ellipse cx="88" cy="90" rx="55" ry="28" fill="#ffee88" opacity="0.22"/>
+
+  <!-- long dorsal fin -->
+  <path d="M45,23 Q88,2 135,23 L125,33 Q88,14 55,33Z" fill="#ff8800" opacity="0.5"/>
+
+  <!-- long pectoral fin -->
+  <path d="M75,95 Q60,120 45,130 Q50,118 55,108 Q65,112 75,95Z" fill="#ffaa00" opacity="0.45"/>
+
+  <!-- gloss -->
+  <ellipse cx="70" cy="48" rx="52" ry="30" fill="url(#gf-gloss)"/>
+
+  <!-- eye -->
+  <circle cx="32" cy="67" r="12" fill="#fff5cc"/>
+  <circle cx="32" cy="67" r="9" fill="#0d0500"/>
+  <circle cx="28" cy="63" r="3.8" fill="rgba(255,255,255,0.92)"/>
+  <circle cx="35" cy="71" r="1.6" fill="rgba(255,255,255,0.4)"/>
+</svg>

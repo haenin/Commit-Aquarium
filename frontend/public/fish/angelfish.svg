@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200">
+  <defs>
+    <radialGradient id="af-body" cx="40%" cy="35%" r="62%">
+      <stop offset="0%" stop-color="#fff9c4"/>
+      <stop offset="28%" stop-color="#f9c84a"/>
+      <stop offset="65%" stop-color="#e07700"/>
+      <stop offset="100%" stop-color="#994400"/>
+    </radialGradient>
+    <radialGradient id="af-gloss" cx="32%" cy="22%" r="52%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.88)"/>
+      <stop offset="48%" stop-color="rgba(255,255,255,0.2)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="af-fin-top" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#e07700" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffcc40" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="af-fin-bot" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#cc5500" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#ff8800" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="af-shadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#883300" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- top dorsal fin -->
+  <path d="M80,95 Q55,40 70,10 Q80,0 90,10 Q105,40 80,95Z" fill="url(#af-fin-top)" filter="url(#af-shadow)"/>
+
+  <!-- bottom anal fin -->
+  <path d="M80,105 Q55,160 68,188 Q78,198 88,188 Q102,160 80,105Z" fill="url(#af-fin-bot)" filter="url(#af-shadow)"/>
+
+  <!-- tail fin -->
+  <path d="M90,100 C105,80 140,70 148,80 C140,100 140,100 148,120 C140,130 105,120 90,100Z" fill="#e07700" opacity="0.7"/>
+
+  <!-- body diamond -->
+  <ellipse cx="75" cy="100" rx="52" ry="68" fill="url(#af-body)" filter="url(#af-shadow)"/>
+
+  <!-- black vertical stripes -->
+  <ellipse cx="75" cy="100" rx="6" ry="68" fill="#1a0a00" opacity="0.55"/>
+  <ellipse cx="55" cy="100" rx="5" ry="58" fill="#1a0a00" opacity="0.4"/>
+  <ellipse cx="92" cy="100" rx="5" ry="56" fill="#1a0a00" opacity="0.38"/>
+
+  <!-- gloss -->
+  <ellipse cx="62" cy="72" rx="34" ry="45" fill="url(#af-gloss)"/>
+
+  <!-- eye -->
+  <circle cx="46" cy="90" r="10" fill="#fff8e0"/>
+  <circle cx="46" cy="90" r="7.5" fill="#0d0500"/>
+  <circle cx="42" cy="86" r="3.2" fill="rgba(255,255,255,0.92)"/>
+</svg>

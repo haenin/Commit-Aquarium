@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 200">
+  <defs>
+    <radialGradient id="jf-dome" cx="40%" cy="35%" r="62%">
+      <stop offset="0%" stop-color="rgba(255,200,255,0.95)"/>
+      <stop offset="35%" stop-color="rgba(220,100,255,0.75)"/>
+      <stop offset="70%" stop-color="rgba(160,40,220,0.55)"/>
+      <stop offset="100%" stop-color="rgba(100,0,160,0.35)"/>
+    </radialGradient>
+    <radialGradient id="jf-gloss" cx="32%" cy="22%" r="48%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.85)"/>
+      <stop offset="40%" stop-color="rgba(255,255,255,0.25)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <radialGradient id="jf-inner" cx="50%" cy="60%" r="55%">
+      <stop offset="0%" stop-color="rgba(255,180,255,0.6)"/>
+      <stop offset="100%" stop-color="rgba(180,60,220,0.15)"/>
+    </radialGradient>
+    <filter id="jf-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- tentacles (long flowing) -->
+  <g opacity="0.55" stroke-linecap="round">
+    <path d="M55,118 Q42,145 48,175 Q38,185 42,195" stroke="#da70ff" stroke-width="2" fill="none"/>
+    <path d="M68,122 Q58,150 62,178 Q52,188 55,200" stroke="#c060ff" stroke-width="1.8" fill="none"/>
+    <path d="M80,125 Q78,155 82,182 Q75,190 78,200" stroke="#da70ff" stroke-width="2.2" fill="none"/>
+    <path d="M92,122 Q96,152 92,178 Q100,188 97,200" stroke="#c060ff" stroke-width="1.8" fill="none"/>
+    <path d="M104,118 Q112,146 108,175 Q118,184 115,195" stroke="#da70ff" stroke-width="2" fill="none"/>
+    <!-- shorter inner tentacles -->
+    <path d="M62,120 Q55,138 58,155" stroke="#e090ff" stroke-width="1.2" fill="none" opacity="0.7"/>
+    <path d="M75,124 Q70,142 72,158" stroke="#e090ff" stroke-width="1.2" fill="none" opacity="0.7"/>
+    <path d="M88,124 Q90,143 88,160" stroke="#e090ff" stroke-width="1.2" fill="none" opacity="0.7"/>
+    <path d="M100,120 Q105,138 102,155" stroke="#e090ff" stroke-width="1.2" fill="none" opacity="0.7"/>
+  </g>
+
+  <!-- dome body -->
+  <path d="M10,100 Q10,18 80,18 Q150,18 150,100 Z" fill="url(#jf-dome)"/>
+
+  <!-- inner bell -->
+  <path d="M30,100 Q30,45 80,45 Q130,45 130,100 Z" fill="url(#jf-inner)"/>
+
+  <!-- oral arms (short frilly) -->
+  <path d="M55,102 Q48,115 52,125 Q58,118 55,102Z" fill="#e080ff" opacity="0.5"/>
+  <path d="M80,105 Q78,120 82,128 Q86,120 80,105Z" fill="#e080ff" opacity="0.5"/>
+  <path d="M105,102 Q112,115 108,125 Q102,118 105,102Z" fill="#e080ff" opacity="0.5"/>
+
+  <!-- gloss -->
+  <path d="M20,80 Q20,32 80,32 Q125,32 138,70 Q100,38 40,50 Q22,62 20,80Z" fill="url(#jf-gloss)"/>
+
+  <!-- bottom rim glow -->
+  <path d="M10,100 Q10,108 80,112 Q150,108 150,100" stroke="rgba(220,140,255,0.4)" stroke-width="3" fill="none"/>
+</svg>
