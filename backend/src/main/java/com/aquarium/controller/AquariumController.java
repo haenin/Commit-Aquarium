@@ -27,10 +27,14 @@ public class AquariumController {
     @GetMapping("/me")
     public Map<String, Object> me(Authentication authentication) {
         OAuth2User user = (OAuth2User) authentication.getPrincipal();
+        Integer publicRepos = user.getAttribute("public_repos");
+        Integer followers   = user.getAttribute("followers");
         return Map.of(
-            "login",  user.getAttribute("login"),
-            "avatar", user.getAttribute("avatar_url"),
-            "name",   user.getAttribute("name") != null ? user.getAttribute("name") : user.getAttribute("login")
+            "login",       user.getAttribute("login"),
+            "avatar",      user.getAttribute("avatar_url"),
+            "name",        user.getAttribute("name") != null ? user.getAttribute("name") : user.getAttribute("login"),
+            "publicRepos", publicRepos != null ? publicRepos : 0,
+            "followers",   followers   != null ? followers   : 0
         );
     }
 
