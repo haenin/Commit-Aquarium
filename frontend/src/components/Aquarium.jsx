@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 /* ─────────────── dimensions ─────────────── */
 const W = 960, H = 520
@@ -37,7 +37,7 @@ function spawnCreature(idx, imgs) {
     x:         rnd(-240, -60),
     baseY:     rnd(ZONE_MIN, ZONE_MAX),
     y:         0,
-    speed:     rnd(0.5, 1.6),
+    speed:     rnd(0.2, 0.6),
     w, h,
     phase:     rnd(0, Math.PI * 2),
     wobbleAmp: rnd(5, 14),
@@ -88,23 +88,34 @@ function drawStars(ctx, imgs, t) {
   })
 }
 
-/* ─────────────── Windows XP chrome ─────────────── */
+/* ─────────────── Windows XP chrome (gradients cached at module level) ─────────────── */
+let _cachedCtx = null
+let _gradTitle = null, _gradShine = null
+
+function getOrBuildGrads(ctx) {
+  if (_cachedCtx === ctx) return
+  _cachedCtx = ctx
+
+  _gradTitle = ctx.createLinearGradient(0, 0, 0, TITLE_H)
+  _gradTitle.addColorStop(0,    '#62AAEB')
+  _gradTitle.addColorStop(0.08, '#458ED8')
+  _gradTitle.addColorStop(0.45, '#1B6EC5')
+  _gradTitle.addColorStop(0.92, '#1155A0')
+  _gradTitle.addColorStop(1,    '#0D4590')
+
+  _gradShine = ctx.createLinearGradient(0, 0, 0, 7)
+  _gradShine.addColorStop(0, 'rgba(255,255,255,0.6)')
+  _gradShine.addColorStop(1, 'rgba(255,255,255,0)')
+}
+
 function drawWindowChrome(ctx) {
+  getOrBuildGrads(ctx)
   ctx.save()
 
-  const tg = ctx.createLinearGradient(0, 0, 0, TITLE_H)
-  tg.addColorStop(0,    '#62AAEB')
-  tg.addColorStop(0.08, '#458ED8')
-  tg.addColorStop(0.45, '#1B6EC5')
-  tg.addColorStop(0.92, '#1155A0')
-  tg.addColorStop(1,    '#0D4590')
-  ctx.fillStyle = tg
+  ctx.fillStyle = _gradTitle
   ctx.fillRect(0, 0, W, TITLE_H)
 
-  const thl = ctx.createLinearGradient(0, 0, 0, 7)
-  thl.addColorStop(0, 'rgba(255,255,255,0.6)')
-  thl.addColorStop(1, 'rgba(255,255,255,0)')
-  ctx.fillStyle = thl
+  ctx.fillStyle = _gradShine
   ctx.fillRect(0, 0, W, 7)
 
   const ix = 8, iy = 6, is = 16, h2 = is / 2 - 1
@@ -150,9 +161,15 @@ function drawWindowChrome(ctx) {
   ctx.restore()
 }
 
+const _btnGradCache = new Map()
 function drawWinBtn(ctx, x, y, w, h, colorTop, colorBot, label) {
-  const g = ctx.createLinearGradient(x, y, x, y + h)
-  g.addColorStop(0, colorTop); g.addColorStop(1, colorBot)
+  const key = `${x},${y},${colorTop}`
+  let g = _btnGradCache.get(key)
+  if (!g) {
+    g = ctx.createLinearGradient(x, y, x, y + h)
+    g.addColorStop(0, colorTop); g.addColorStop(1, colorBot)
+    _btnGradCache.set(key, g)
+  }
   ctx.fillStyle = g; ctx.fillRect(x, y, w, h)
   ctx.fillStyle = 'rgba(255,255,255,0.28)'; ctx.fillRect(x, y, w, h * 0.48)
   ctx.strokeStyle = 'rgba(0,0,0,0.35)'; ctx.lineWidth = 0.5; ctx.strokeRect(x, y, w, h)
@@ -163,6 +180,7 @@ function drawWinBtn(ctx, x, y, w, h, colorTop, colorBot, label) {
 /* ─────────────── main component ─────────────── */
 export default function Aquarium({ totalCommits }) {
   const canvasRef = useRef(null)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -193,15 +211,21 @@ export default function Aquarium({ totalCommits }) {
       img.src     = src
     }))).then(() => {
       if (!alive) return
+      if (raf) return  // 이미 루프 중이면 중복 시작 방지
+      setLoaded(true)
 
       // 커밋 수에 따라 생물 수 결정
       const numCreatures = Math.min(4 + Math.floor(totalCommits / 180), 16)
-      const creatures = Array.from({ length: numCreatures }, (_, i) => spawnCreature(i, imgs))
+      const creatures = Array.from({ length: numCreatures }, (_, i) => {
+        const c = spawnCreature(i, imgs)
+        c.x = rnd(0, W)   // 이미 헤엄치고 있는 상태로 시작
+        return c
+      })
 
       // 나비 고정 위치 (배경 장식, 움직이지 않음)
       const butterflySpots = [
-        { x: 200, y: SCENE_Y + 80,  s: 0.22, phase: 0   },
-        { x: 720, y: SCENE_Y + 60,  s: 0.19, phase: 1.5 },
+        { x: 200, y: SCENE_Y + 80,  s: 0.08, phase: 0   },
+        { x: 720, y: SCENE_Y + 60,  s: 0.07, phase: 1.5 },
       ]
 
       // 물방울 orbs (PNG 이미지로 띄워 올림)
@@ -215,7 +239,11 @@ export default function Aquarium({ totalCommits }) {
           alpha: rnd(0.55, 0.90),
         }
       }
-      const bubbles = Array.from({ length: 10 }, (_, i) => spawnBubble(i))
+      const bubbles = Array.from({ length: 10 }, (_, i) => {
+        const b = spawnBubble(i)
+        b.y = rnd(SCENE_Y, H)  // 이미 올라오고 있는 상태로 시작
+        return b
+      })
 
       function loop(t) {
         // 배경 이미지
@@ -283,11 +311,34 @@ export default function Aquarium({ totalCommits }) {
   }, [totalCommits])
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={W}
-      height={H}
-      style={{ width: '100%', height: 'auto', display: 'block' }}
-    />
+    <div style={{ position: 'relative', width: '100%' }}>
+      <canvas
+        ref={canvasRef}
+        width={W}
+        height={H}
+        style={{ width: '100%', height: 'auto', display: 'block' }}
+      />
+      {!loaded && (
+        <div style={{
+          position: 'absolute', inset: 0,
+          display: 'flex', flexDirection: 'column',
+          alignItems: 'center', justifyContent: 'center',
+          background: 'linear-gradient(180deg, #1a6ea8 0%, #0d3d6b 100%)',
+          color: 'white',
+          fontSize: '16px',
+          gap: '14px',
+        }}>
+          <div style={{
+            width: '40px', height: '40px',
+            border: '4px solid rgba(255,255,255,0.3)',
+            borderTopColor: 'white',
+            borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite',
+          }} />
+          어항을 채우는 중...
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        </div>
+      )}
+    </div>
   )
 }
