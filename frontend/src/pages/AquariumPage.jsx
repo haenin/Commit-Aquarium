@@ -52,6 +52,14 @@ export default function AquariumPage() {
           ))}
         </div>
       </div>
+      <footer style={{
+        textAlign: 'center',
+        padding: '18px 0 10px',
+        fontSize: '13px',
+        color: 'rgba(255,255,255,0.45)',
+      }}>
+        made by haenin
+      </footer>
     </div>
   )
 }
