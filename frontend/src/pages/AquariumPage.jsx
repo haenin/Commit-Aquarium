@@ -6,20 +6,21 @@ export default function AquariumPage() {
   const [user, setUser] = useState(null)
   const [contributions, setContributions] = useState([])
   const [total, setTotal] = useState(0)
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    getMe()
-      .then(res => setUser(res.data))
-      .catch(() => { window.location.href = '/' })
-
-    getContributions()
-      .then(res => {
+    Promise.all([
+      getMe().then(res => setUser(res.data)),
+      getContributions().then(res => {
         setContributions(res.data.days)
         setTotal(res.data.total)
-      })
+      }),
+    ])
+      .then(() => setReady(true))
+      .catch(() => { window.location.href = '/' })
   }, [])
 
-  if (!user) return <div className="loading">어항을 채우는 중...</div>
+  if (!ready) return <div className="loading">어항을 채우는 중...</div>
 
   return (
     <div className="aquarium-page">
