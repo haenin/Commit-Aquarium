@@ -10,8 +10,9 @@
 ## 미리보기
 
 - GitHub OAuth 로그인
-- 내 연간 커밋 수 기반으로 물고기 수 결정
-- Frutiger Aero 감성의 Canvas 어항 애니메이션 (클론피시, 블루탱, 젤리피쉬, 씨호스 등)
+- 내 연간 커밋 수 기반으로 물고기 수 결정 (최소 4마리 ~ 최대 16마리)
+- Frutiger Aero 감성의 Windows XP 스타일 Canvas 어항 애니메이션
+- 물고기·물방울이 처음부터 화면 전체에 분산되어 유유히 헤엄침
 - Contribution 캘린더 히트맵
 
 ---
@@ -21,7 +22,7 @@
 | 구분 | 기술 |
 |------|------|
 | Backend | Spring Boot 3.2, Spring Security, OAuth2 Client, JPA |
-| Frontend | React 18, Vite, Canvas 2D API |
+| Frontend | React 19, Vite, Canvas 2D API |
 | Database | MySQL 8 |
 | Auth | GitHub OAuth App |
 
@@ -139,19 +140,16 @@ npm run dev
 
 ## 어항 물고기 종류
 
-커밋 수 / 30 = 물고기 수 (최소 4 ~ 최대 14마리)
+커밋 수에 따라 물고기 수 결정 (최소 4마리 ~ 최대 16마리)
 
-| 물고기 | 특징 |
+| 물고기 | 파일 |
 |--------|------|
-| 🐠 클론피시 | 오렌지 + 흰 줄무늬 |
-| 🐟 블루탱 | 파랑 + 노란 꼬리 |
-| 🐡 복어 | 둥글고 귀여운 몸통 |
-| 금붕어 | 황금빛 흐르는 지느러미 |
-| 엔젤피시 | 세로 줄무늬 다이아몬드 몸 |
-| 베타 | 보라빛 긴 지느러미 |
-| 네온테트라 | 형광 파랑 + 빨강 줄 |
-| 🪼 젤리피쉬 | 위로 떠오르며 맥동 |
-| 🦀 씨호스 | 천천히 유영 |
+| 금붕어 | commit_goldfish.png |
+| 나비고기 | commit_butterflyfish.png |
+| 엔젤피시 | commit_angelfish.png |
+| 빨간금붕어 | commit_redgoldfish.png |
+| 파란물고기 | commit_bluefish.png |
+| 돌고래 | commit_dolphin.png |
 
 ---
 
